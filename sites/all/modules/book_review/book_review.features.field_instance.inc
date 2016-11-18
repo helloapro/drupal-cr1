@@ -37,7 +37,7 @@ function book_review_field_default_field_instances() {
     'entity_type' => 'node',
     'field_name' => 'body',
     'label' => 'Review Body',
-    'required' => 0,
+    'required' => 1,
     'settings' => array(
       'display_summary' => 1,
       'text_processing' => 1,
@@ -79,7 +79,7 @@ function book_review_field_default_field_instances() {
     'entity_type' => 'node',
     'field_name' => 'field_book_author',
     'label' => 'Book Author',
-    'required' => 0,
+    'required' => 1,
     'settings' => array(
       'text_processing' => 0,
       'user_register_form' => FALSE,
@@ -100,18 +100,13 @@ function book_review_field_default_field_instances() {
     'bundle' => 'book_review',
     'default_value' => NULL,
     'deleted' => 0,
-    'description' => 'Give the book a number rating on a scale from 1-5',
+    'description' => '',
     'display' => array(
       'default' => array(
         'label' => 'above',
-        'module' => 'number',
-        'settings' => array(
-          'decimal_separator' => '.',
-          'prefix_suffix' => TRUE,
-          'scale' => 0,
-          'thousand_separator' => ' ',
-        ),
-        'type' => 'number_integer',
+        'module' => 'list',
+        'settings' => array(),
+        'type' => 'list_default',
         'weight' => 2,
       ),
       'teaser' => array(
@@ -124,19 +119,15 @@ function book_review_field_default_field_instances() {
     'entity_type' => 'node',
     'field_name' => 'field_rating',
     'label' => 'Rating',
-    'required' => 0,
+    'required' => 1,
     'settings' => array(
-      'max' => 5,
-      'min' => 1,
-      'prefix' => '',
-      'suffix' => '',
       'user_register_form' => FALSE,
     ),
     'widget' => array(
-      'active' => 0,
-      'module' => 'number',
+      'active' => 1,
+      'module' => 'options',
       'settings' => array(),
-      'type' => 'number',
+      'type' => 'options_buttons',
       'weight' => -2,
     ),
   );
@@ -144,7 +135,6 @@ function book_review_field_default_field_instances() {
   // Translatables
   // Included for use with string extractors like potx.
   t('Book Author');
-  t('Give the book a number rating on a scale from 1-5');
   t('Rating');
   t('Review Body');
   t('Write a summary of your thoughts on this book!');
